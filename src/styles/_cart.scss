@@ -1,0 +1,17 @@
+@import "variables";
+
+div.cart {
+  top: 0;
+  right: 0;
+  width: 25%;
+  position: fixed;
+  height: 100vh;
+  background-color: ivory;
+  color: black;
+  z-index: 100;
+  h2 {
+  }
+  li {
+    color: black;
+  }
+}

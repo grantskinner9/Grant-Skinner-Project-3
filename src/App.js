@@ -1,14 +1,33 @@
 import './styles/App.css';
 import Header from './Header';
 import ResultsSection from './ResultsSection';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import firebase from './firebase';
 
 function App() {
 
   const [albumArray, setAlbumArray] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [displaySection, setDisplaySection] = useState(false);
-  const [albumsInCart, setAlbumsInCart] = useState(0);
+  const [numberOfAlbumsInCart, setNumberOfAlbumsInCart] = useState(0);
+  const [albumsInCart, setAlbumsInCart] = useState([]);
+
+  useEffect(() => {
+    const dbRef = firebase.database().ref();
+    dbRef.on('value', (response) => {
+      const myData = response.val();
+      const toBeSetInState = [];
+
+      for(let key in myData) {
+        const albumObject = {
+          key: key,
+          album: myData[key]
+        }
+        toBeSetInState.push(albumObject)
+      }
+      setAlbumsInCart(toBeSetInState)
+    })
+  }, [])
 
   const handleChange = (input) => {
     setUserInput(input);
@@ -30,7 +49,7 @@ function App() {
     }
 
   const addAlbumToCart = () => {
-    setAlbumsInCart(albumsInCart + 1);
+    setNumberOfAlbumsInCart(numberOfAlbumsInCart + 1);
   }
 
   return (
@@ -39,6 +58,7 @@ function App() {
         userInput={handleChange}
         inputValue={userInput}
         submitValue={APICall}
+        numberOfAlbumsInCart={numberOfAlbumsInCart}
         albumsInCart={albumsInCart}
       />
       {

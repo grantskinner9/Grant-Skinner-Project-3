@@ -1,15 +1,26 @@
-import './styles/App.css';
 import Form from './Form';
+import Cart from './Cart';
+import { useState } from 'react';
 
-const Header = ({userInput, inputValue, submitValue, albumsInCart}) => {
+const Header = ({userInput, inputValue, submitValue, numberOfAlbumsInCart, albumsInCart}) => {
+
+  const [ openCart, setOpenCart ] = useState(false);
 
   return (
     <header>
       <div className="cartPosition">
-        <div className="cartFlex">
+        <div className="cartFlex" onClick={ () => {setOpenCart(!openCart)}}>
           <i className="fas fa-shopping-cart"></i>
-          <p className="counter">{albumsInCart}</p>
+          <p className="counter">{numberOfAlbumsInCart}</p>
         </div>
+        {
+          openCart ?
+          <Cart
+          albumsInCart={albumsInCart}
+          setOpenCart={setOpenCart}
+          openCart={openCart}/> :
+          null
+        }
         <h1>Mountain<span>Records</span></h1>
         <Form
           userInput={userInput}
