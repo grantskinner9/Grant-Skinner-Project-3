@@ -1,0 +1,33 @@
+.myForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  input {
+    width: 300px;
+    color: ivory;
+    border-bottom: 2px ivory solid;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: $secondaryFont;
+    &::placeholder {
+      opacity: 100%;
+    }
+  }
+  button {
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: black;
+    font-family: $primaryFont;
+    font-size: 1.5rem;
+    width: 200px;
+    color: ivory;
+    transition: 0.2s;
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      background-color: #333;
+    }
+  }
+}
