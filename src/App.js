@@ -15,7 +15,7 @@ function App() {
   }
 
   const APICall = () => {
-    const url = 'http://ws.audioscrobbler.com/2.0/';
+    const url = 'https://ws.audioscrobbler.com/2.0/';
     const apiKey = '93bd57c3a3ad6ee71989509b74af6577';
 
     fetch(`${url}?method=artist.gettopalbums&artist=${userInput}&api_key=${apiKey}&limit=20&format=json`)
