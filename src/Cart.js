@@ -2,22 +2,26 @@ const Cart = ({ albumsInCart, setOpenCart, openCart }) => {
 
   return(
     <div className="cart">
-      <h2>Your Cart</h2>
-      <i className="fas fa-times" onClick={ () => setOpenCart(!openCart)}></i>
-      <ul>
-        {
-          albumsInCart.map((albums, index) => {
-            console.log(albums.album)
-            return(
-              <div key={index}>
-                <p>{albums.album.band}</p>
-                <p>{albums.album.album}</p>
-                <img src={albums.album.image} alt={albums.album.band} />
-              </div>
-            )
-          })
-        }
-      </ul>
+      <div className="cartContainer">
+        <i className="fas fa-times closeIcon" onClick={ () => setOpenCart(!openCart)}></i>
+      </div>
+      <div className="cartItems">
+        <h2>Your Cart</h2>
+        <ul>
+          {
+            albumsInCart.map(albums => {
+              console.log(albums.key)
+              return(
+                <div key={albums.key} className="albumCartDisplay">
+                  <img src={albums.album.image} alt={albums.album.band} />
+                  <p className="albumCartName">{albums.album.album}</p>
+                  <p className="artistCartName">{albums.album.band}</p>
+                </div>
+              )
+            })
+          }
+        </ul>
+      </div>
     </div>
   )
 }

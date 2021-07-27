@@ -464,13 +464,50 @@ button:hover, button:focus {
 div.cart {
   top: 0;
   right: 0;
-  width: 25%;
+  width: 450px;
   position: fixed;
   height: 100vh;
   background-color: ivory;
   color: black;
   z-index: 100;
+  overflow: scroll;
 }
-div.cart li {
-  color: black;
+div.cart .cartContainer {
+  display: flex;
+  justify-content: end;
+  padding-right: 50px;
+  padding-top: 10px;
+}
+div.cart .cartContainer .closeIcon {
+  cursor: pointer;
+  font-size: 3rem;
+  font-weight: 600;
+}
+div.cart .cartContainer .closeIcon:hover, div.cart .cartContainer .closeIcon:focus {
+  color: #454545;
+}
+div.cart .cartItems {
+  display: flex;
+  flex-direction: column;
+}
+div.cart .cartItems h2 {
+  font-family: "Jost", sans-serif;
+  font-size: 1.5rem;
+  margin: 15px auto;
+}
+div.cart .albumCartDisplay {
+  padding-top: 30px;
+  text-align: center;
+  font-family: "Jost", sans-serif;
+}
+div.cart .albumCartDisplay img {
+  width: 70%;
+  margin: 0 auto;
+}
+div.cart .albumCartDisplay .albumCartName {
+  font-size: 1.1rem;
+}
+div.cart .albumCartDisplay .artistCartName {
+  font-size: 0.8rem;
+  padding-top: 5px;
 }/*# sourceMappingURL=App.css.map */

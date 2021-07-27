@@ -3,15 +3,51 @@
 div.cart {
   top: 0;
   right: 0;
-  width: 25%;
+  width: 450px;
   position: fixed;
   height: 100vh;
   background-color: ivory;
   color: black;
   z-index: 100;
-  h2 {
+  overflow: scroll;
+  .cartContainer {
+    display: flex;
+    justify-content: end;
+    padding-right: 50px;
+    padding-top: 10px;
+    .closeIcon {
+      cursor: pointer;
+      font-size: 3rem;
+      font-weight: 600;
+      &:hover,
+      &:focus {
+        color: rgb(69, 69, 69);
+      }
+    }
   }
-  li {
-    color: black;
+  .cartItems {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      font-family: $primaryFont;
+      font-size: 1.5rem;
+      margin: 15px auto;
+    }
+  }
+  .albumCartDisplay {
+    padding-top: 30px;
+    text-align: center;
+    font-family: $primaryFont;
+    img {
+      width: 70%;
+      margin: 0 auto;
+    }
+    .albumCartName {
+      font-size: 1.1rem;
+    }
+    .artistCartName {
+      font-size: 0.8rem;
+      padding-top: 5px;
+    }
   }
 }

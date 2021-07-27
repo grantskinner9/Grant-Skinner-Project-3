@@ -11,6 +11,7 @@ function App() {
   const [displaySection, setDisplaySection] = useState(false);
   const [numberOfAlbumsInCart, setNumberOfAlbumsInCart] = useState(0);
   const [albumsInCart, setAlbumsInCart] = useState([]);
+  const [albumDisplay, setAlbumDisplay] = useState(4);
 
   useEffect(() => {
     const dbRef = firebase.database().ref();
@@ -37,19 +38,25 @@ function App() {
     const url = 'https://ws.audioscrobbler.com/2.0/';
     const apiKey = '93bd57c3a3ad6ee71989509b74af6577';
 
-    fetch(`${url}?method=artist.gettopalbums&artist=${userInput}&api_key=${apiKey}&limit=20&format=json`)
+    fetch(`${url}?method=artist.gettopalbums&artist=${userInput}&api_key=${apiKey}&limit=16&format=json`)
       .then(res => res.json())
       .then(data => {
+        console.log(data)
         data.topalbums.album.sort((a, b) => {
           return b.playcount - a.playcount
         });
         setAlbumArray(data.topalbums.album)
         setDisplaySection(true)
+        setAlbumDisplay(4)
       })
     }
 
   const addAlbumToCart = () => {
     setNumberOfAlbumsInCart(numberOfAlbumsInCart + 1);
+  }
+
+  const showMore = () => {
+    setAlbumDisplay(albumDisplay + 4);
   }
 
   return (
@@ -65,7 +72,9 @@ function App() {
         displaySection ?
         <ResultsSection
         albumResults={albumArray}
-        addAlbumToCart={addAlbumToCart}/> :
+        addAlbumToCart={addAlbumToCart}
+        albumDisplay={albumDisplay}
+        showMore={showMore}/> :
         null
       }
 

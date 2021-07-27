@@ -1,12 +1,5 @@
-import { useState } from 'react';
+const ResultsSection = ({albumResults, addAlbumToCart, albumDisplay, showMore}) => {
 
-const ResultsSection = ({albumResults, addAlbumToCart}) => {
-
-  const [albumDisplay, setAlbumDisplay] = useState(4);
-
-  const showMore = () => {
-    setAlbumDisplay(albumDisplay + 4);
-  }
 
   const albumsToBeDisplayed = albumResults.slice([0], albumDisplay);
   
