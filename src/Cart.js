@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react'
 
 const Cart = ({ albumsInCart, setOpenCart, openCart, removeFromCart, cartTotal }) => {
 
