@@ -47,18 +47,36 @@ function App() {
     const apiKey = '93bd57c3a3ad6ee71989509b74af6577';
 
     fetch(`${url}?method=artist.gettopalbums&artist=${userInput}&api_key=${apiKey}&limit=16&format=json`)
-      .then(res => res.json())
-      .then(data => {
-        const albumsSorted = data.topalbums.album.sort((a, b) => {
-          return b.playcount - a.playcount
-        });
-        albumsSorted.forEach(album => {
-          album.prices = prices[Math.floor(Math.random() * prices.length)];
-        })
-        setAlbumArray(albumsSorted)
-        setDisplaySection(true)
-        setAlbumDisplay(4)
+    .then(res => {
+      if(res.ok) {
+        return res.json();
+      } else {
+        throw new Error(res.statusText);
+      }
+    })
+    .then(data => {
+      const albumsSorted = data.topalbums.album.sort((a, b) => {
+        return b.playcount - a.playcount
+      });
+      albumsSorted.forEach(album => {
+        album.prices = prices[Math.floor(Math.random() * prices.length)];
       })
+
+      const albumsWithImage = albumsSorted.filter(album => {
+        return album.image[0]["#text"];
+      });
+
+      setAlbumArray(albumsWithImage)
+      setDisplaySection(true)
+      setAlbumDisplay(4)
+    })
+    .catch(err => {
+      if (err.message === "Not Found") {
+        alert("We couldn't find this artist at this time.  Try again later.")
+      } else {
+        alert("Something went wrong.  Try again later.")
+      }
+    })
   }
 
   const addAlbumToCart = (albumName, artistName, albumArt, prices) => {
