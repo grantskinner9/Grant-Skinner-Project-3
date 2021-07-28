@@ -510,8 +510,7 @@ div.cart .imageCartContainer .removeFromCart:hover, div.cart .imageCartContainer
 div.cart .cartTotal {
   font-family: "Jost", sans-serif;
   font-size: 1.3rem;
-  padding-top: 50px;
-  padding-right: 30px;
+  padding: 100px 30px;
   text-align: right;
 }
 div.cart .cartTotal span {
@@ -534,7 +533,7 @@ div.cart .cartTotal span {
 }
 @media (max-width: 600px) {
   header h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     line-height: 60px;
   }
 
