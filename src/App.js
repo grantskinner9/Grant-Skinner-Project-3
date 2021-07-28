@@ -1,6 +1,7 @@
 import './styles/App.css';
 import Header from './Header';
 import ResultsSection from './ResultsSection';
+import Footer from './Footer';
 import prices from './prices';
 import { useState, useEffect } from 'react';
 import firebase from './firebase';
@@ -129,6 +130,11 @@ function App() {
         albumDisplay={albumDisplay}
         showMore={showMore}
         /> :
+        null
+      }
+      {
+        displaySection ?
+        <Footer /> :
         null
       }
 

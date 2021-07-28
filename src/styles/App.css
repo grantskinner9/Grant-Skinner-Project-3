@@ -541,6 +541,16 @@ div.cart .cartTotal span {
     width: calc(80%);
   }
 }
+.footer {
+  height: 50px;
+  background-color: black;
+  color: ivory;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Jost", sans-serif;
+}
+
 html {
   font-size: 125%;
 }
