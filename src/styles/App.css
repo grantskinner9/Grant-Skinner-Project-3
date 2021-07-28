@@ -573,4 +573,14 @@ div.cart .cartTotal span {
   div.cart {
     width: 100vw;
   }
+}
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 3rem;
+    line-height: 60px;
+  }
+
+  .albumList li.artistResults {
+    width: calc(80%);
+  }
 }/*# sourceMappingURL=App.css.map */
