@@ -32,7 +32,7 @@ function App() {
       toBeSetInState.forEach(arr => {
         cartTotal = cartTotal + arr.album.price
       })
-      setCartTotal(cartTotal)
+      setCartTotal(cartTotal.toFixed(2))
       setAlbumsInCart(toBeSetInState)
       setNumberOfAlbumsInCart(toBeSetInState.length)
     })
