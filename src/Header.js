@@ -1,8 +1,11 @@
 import Form from './Form';
 import Cart from './Cart';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
-const Header = ({userInput, inputValue, submitValue, numberOfAlbumsInCart, albumsInCart}) => {
+
+const Header = ({userInput, inputValue, submitValue, numberOfAlbumsInCart, albumsInCart, removeFromCart}) => {
 
   const [ openCart, setOpenCart ] = useState(false);
 
@@ -10,7 +13,7 @@ const Header = ({userInput, inputValue, submitValue, numberOfAlbumsInCart, album
     <header>
       <div className="cartPosition">
         <div className="cartFlex" onClick={ () => {setOpenCart(!openCart)}}>
-          <i className="fas fa-shopping-cart"></i>
+          <FontAwesomeIcon icon={faShoppingCart} />
           <p className="counter">{numberOfAlbumsInCart}</p>
         </div>
         {
@@ -18,7 +21,8 @@ const Header = ({userInput, inputValue, submitValue, numberOfAlbumsInCart, album
           <Cart
           albumsInCart={albumsInCart}
           setOpenCart={setOpenCart}
-          openCart={openCart}/> :
+          openCart={openCart}
+          removeFromCart={removeFromCart}/> :
           null
         }
         <h1>Mountain<span>Records</span></h1>

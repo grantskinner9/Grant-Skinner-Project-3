@@ -1,0 +1,16 @@
+@media (max-width: 1000px) {
+  .wrapper {
+    width: 95%;
+  }
+}
+
+@media (max-width: 800px) {
+  .albumList {
+    li.artistResults {
+      width: calc(100% / 2);
+    }
+  }
+  div.cart {
+    width: 100vw;
+  }
+}

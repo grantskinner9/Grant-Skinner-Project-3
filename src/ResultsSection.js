@@ -7,14 +7,16 @@ const ResultsSection = ({albumResults, addAlbumToCart, albumDisplay, showMore}) 
   return(
     <section>
       <div className="wrapper">
-        <ul>
+        <ul className="albumList">
           {
             albumsToBeDisplayed.map((results, index) => {
               const image = results.image[results.image.length-1]["#text"];
-              const {name, artist} = results;
+              const { name, artist } = results;
               return(
-                <li key={index}>
-                  <div className="imageContainer" onClick={ () => addAlbumToCart()}>
+                <li key={index} className="artistResults">
+                  <div
+                  className="imageContainer"
+                  onClick={ () => addAlbumToCart(name, artist.name, image)}>
                     <img src={image} alt={name} />
                     <p className="addToCart">Add to cart</p>
                   </div>

@@ -1,13 +1,17 @@
 @import "variables";
 
-ul {
+.albumList {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   font-family: $primaryFont;
-  li {
+  li.artistResults {
     width: calc(100% / 4);
     margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     .albumName {
       font-size: 1rem;
     }

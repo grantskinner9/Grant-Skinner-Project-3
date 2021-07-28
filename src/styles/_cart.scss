@@ -12,7 +12,7 @@ div.cart {
   overflow: scroll;
   .cartContainer {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     padding-right: 50px;
     padding-top: 10px;
     .closeIcon {
@@ -34,6 +34,11 @@ div.cart {
       margin: 15px auto;
     }
   }
+  .albumList {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
   .albumCartDisplay {
     padding-top: 30px;
     text-align: center;
@@ -48,6 +53,29 @@ div.cart {
     .artistCartName {
       font-size: 0.8rem;
       padding-top: 5px;
+    }
+  }
+  .imageCartContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    .removeFromCart {
+      position: absolute;
+      height: 100%;
+      width: 70%;
+      top: 0;
+      opacity: 0;
+      text-align: center;
+      padding-top: 25%;
+      font-family: $primaryFont;
+      font-size: 1.4rem;
+      &:hover,
+      &:focus {
+        opacity: 80%;
+        color: white;
+        background-color: black;
+        cursor: pointer;
+      }
     }
   }
 }

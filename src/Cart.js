@@ -1,22 +1,27 @@
-const Cart = ({ albumsInCart, setOpenCart, openCart }) => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+
+const Cart = ({ albumsInCart, setOpenCart, openCart, removeFromCart }) => {
 
   return(
     <div className="cart">
       <div className="cartContainer">
-        <i className="fas fa-times closeIcon" onClick={ () => setOpenCart(!openCart)}></i>
+        <FontAwesomeIcon icon={faTimes} className="closeIcon" onClick={ () => setOpenCart(!openCart)} />
       </div>
       <div className="cartItems">
         <h2>Your Cart</h2>
-        <ul>
+        <ul className="albumList">
           {
             albumsInCart.map(albums => {
-              console.log(albums.key)
               return(
-                <div key={albums.key} className="albumCartDisplay">
-                  <img src={albums.album.image} alt={albums.album.band} />
+                <li key={albums.key} className="albumCartDisplay">
+                  <div className="imageCartContainer" onClick={() => removeFromCart(albums.key)}>
+                    <img src={albums.album.image} alt={albums.album.band} />
+                    <p className="removeFromCart">Remove from Cart</p>
+                  </div>
                   <p className="albumCartName">{albums.album.album}</p>
                   <p className="artistCartName">{albums.album.band}</p>
-                </div>
+                </li>
               )
             })
           }

@@ -27,6 +27,7 @@ function App() {
         toBeSetInState.push(albumObject)
       }
       setAlbumsInCart(toBeSetInState)
+      setNumberOfAlbumsInCart(toBeSetInState.length)
     })
   }, [])
 
@@ -49,14 +50,26 @@ function App() {
         setDisplaySection(true)
         setAlbumDisplay(4)
       })
-    }
+  }
 
-  const addAlbumToCart = () => {
+  const addAlbumToCart = (albumName, artistName, albumArt) => {
     setNumberOfAlbumsInCart(numberOfAlbumsInCart + 1);
+    const artistObj = {
+      album: albumName,
+      band: artistName,
+      image: albumArt
+    }
+    const dbRef = firebase.database().ref();
+    dbRef.push(artistObj);
   }
 
   const showMore = () => {
     setAlbumDisplay(albumDisplay + 4);
+  }
+
+  const removeFromCart = (key) => {
+    const dbRef = firebase.database().ref();
+    dbRef.child(key).remove();
   }
 
   return (
@@ -67,6 +80,7 @@ function App() {
         submitValue={APICall}
         numberOfAlbumsInCart={numberOfAlbumsInCart}
         albumsInCart={albumsInCart}
+        removeFromCart={removeFromCart}
       />
       {
         displaySection ?
@@ -74,7 +88,8 @@ function App() {
         albumResults={albumArray}
         addAlbumToCart={addAlbumToCart}
         albumDisplay={albumDisplay}
-        showMore={showMore}/> :
+        showMore={showMore}
+        /> :
         null
       }
 

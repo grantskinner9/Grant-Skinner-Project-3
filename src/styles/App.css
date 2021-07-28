@@ -403,30 +403,34 @@ header h1 span {
   background-color: #333;
 }
 
-ul {
+.albumList {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   font-family: "Jost", sans-serif;
 }
-ul li {
+.albumList li.artistResults {
   width: calc(100% / 4);
   margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
-ul li .albumName {
+.albumList li.artistResults .albumName {
   font-size: 1rem;
 }
-ul li .artistName {
+.albumList li.artistResults .artistName {
   font-size: 0.75rem;
 }
-ul li img {
+.albumList li.artistResults img {
   width: 100%;
 }
-ul li .imageContainer {
+.albumList li.artistResults .imageContainer {
   position: relative;
   width: 80%;
 }
-ul li .addToCart {
+.albumList li.artistResults .addToCart {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -437,7 +441,7 @@ ul li .addToCart {
   font-family: "Jost", sans-serif;
   font-size: 1.5rem;
 }
-ul li .addToCart:hover, ul li .addToCart:focus {
+.albumList li.artistResults .addToCart:hover, .albumList li.artistResults .addToCart:focus {
   opacity: 80%;
   color: white;
   background-color: black;
@@ -474,7 +478,7 @@ div.cart {
 }
 div.cart .cartContainer {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   padding-right: 50px;
   padding-top: 10px;
 }
@@ -495,6 +499,11 @@ div.cart .cartItems h2 {
   font-size: 1.5rem;
   margin: 15px auto;
 }
+div.cart .albumList {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
 div.cart .albumCartDisplay {
   padding-top: 30px;
   text-align: center;
@@ -510,4 +519,41 @@ div.cart .albumCartDisplay .albumCartName {
 div.cart .albumCartDisplay .artistCartName {
   font-size: 0.8rem;
   padding-top: 5px;
+}
+div.cart .imageCartContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+div.cart .imageCartContainer .removeFromCart {
+  position: absolute;
+  height: 100%;
+  width: 70%;
+  top: 0;
+  opacity: 0;
+  text-align: center;
+  padding-top: 25%;
+  font-family: "Jost", sans-serif;
+  font-size: 1.4rem;
+}
+div.cart .imageCartContainer .removeFromCart:hover, div.cart .imageCartContainer .removeFromCart:focus {
+  opacity: 80%;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .wrapper {
+    width: 95%;
+  }
+}
+@media (max-width: 800px) {
+  .albumList li.artistResults {
+    width: calc(100% / 2);
+  }
+
+  div.cart {
+    width: 100vw;
+  }
 }/*# sourceMappingURL=App.css.map */
