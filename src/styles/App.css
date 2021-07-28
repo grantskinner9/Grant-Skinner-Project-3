@@ -378,15 +378,6 @@ header h1 span {
   font-size: 1.5rem;
   font-family: "Merriweather", serif;
 }
-.myForm input::-moz-placeholder {
-  opacity: 100%;
-}
-.myForm input:-ms-input-placeholder {
-  opacity: 100%;
-}
-.myForm input::placeholder {
-  opacity: 100%;
-}
 .myForm button {
   border-radius: 20px;
   margin-top: 20px;
