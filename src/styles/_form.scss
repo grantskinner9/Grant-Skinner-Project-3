@@ -10,9 +10,9 @@
     text-align: center;
     font-size: 1.5rem;
     font-family: $secondaryFont;
-    // &::placeholder {
-    //   opacity: 100%;
-    // }
+    &::placeholder {
+      opacity: 1;
+    }
   }
   button {
     border-radius: 20px;

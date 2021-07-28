@@ -378,6 +378,15 @@ header h1 span {
   font-size: 1.5rem;
   font-family: "Merriweather", serif;
 }
+.myForm input::-moz-placeholder {
+  opacity: 1;
+}
+.myForm input:-ms-input-placeholder {
+  opacity: 1;
+}
+.myForm input::placeholder {
+  opacity: 1;
+}
 .myForm button {
   border-radius: 20px;
   margin-top: 20px;
@@ -436,7 +445,7 @@ header h1 span {
   font-size: 1.5rem;
 }
 .albumList li.artistResults .addToCart:hover, .albumList li.artistResults .addToCart:focus {
-  opacity: 80%;
+  opacity: 0.8;
   color: white;
   background-color: black;
   cursor: pointer;
@@ -535,7 +544,7 @@ div.cart .imageCartContainer .removeFromCart {
   font-size: 1.4rem;
 }
 div.cart .imageCartContainer .removeFromCart:hover, div.cart .imageCartContainer .removeFromCart:focus {
-  opacity: 80%;
+  opacity: 0.8;
   color: white;
   background-color: black;
   cursor: pointer;
