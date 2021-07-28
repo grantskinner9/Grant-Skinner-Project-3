@@ -514,6 +514,7 @@ div.cart .albumCartDisplay {
 }
 div.cart .albumCartDisplay img {
   width: 70%;
+  height: 70%;
   margin: 0 auto;
 }
 div.cart .albumCartDisplay .albumCartName {
