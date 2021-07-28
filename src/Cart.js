@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react'
 
-const Cart = ({ albumsInCart, setOpenCart, openCart, removeFromCart }) => {
+const Cart = ({ albumsInCart, setOpenCart, openCart, removeFromCart, cartTotal }) => {
 
   return(
     <div className="cart">
@@ -13,6 +14,7 @@ const Cart = ({ albumsInCart, setOpenCart, openCart, removeFromCart }) => {
         <ul className="albumList">
           {
             albumsInCart.map(albums => {
+              console.log(albums)
               return(
                 <li key={albums.key} className="albumCartDisplay">
                   <div className="imageCartContainer" onClick={() => removeFromCart(albums.key)}>
@@ -21,11 +23,13 @@ const Cart = ({ albumsInCart, setOpenCart, openCart, removeFromCart }) => {
                   </div>
                   <p className="albumCartName">{albums.album.album}</p>
                   <p className="artistCartName">{albums.album.band}</p>
+                  <p className="albumPrice">{albums.album.price}</p>
                 </li>
               )
             })
           }
         </ul>
+        <p className="cartTotal">Total<span>${cartTotal}</span></p>
       </div>
     </div>
   )

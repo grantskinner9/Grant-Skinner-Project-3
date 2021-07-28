@@ -54,6 +54,10 @@ div.cart {
       font-size: 0.8rem;
       padding-top: 5px;
     }
+    .albumPrice {
+      padding-bottom: 20px;
+      border-bottom: 1px solid black;
+    }
   }
   .imageCartContainer {
     position: relative;
@@ -76,6 +80,16 @@ div.cart {
         background-color: black;
         cursor: pointer;
       }
+    }
+  }
+  .cartTotal {
+    font-family: $primaryFont;
+    font-size: 1.3rem;
+    padding-top: 50px;
+    padding-right: 30px;
+    text-align: right;
+    span {
+      display: block;
     }
   }
 }

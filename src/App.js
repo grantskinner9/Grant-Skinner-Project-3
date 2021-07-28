@@ -1,6 +1,7 @@
 import './styles/App.css';
 import Header from './Header';
 import ResultsSection from './ResultsSection';
+import prices from './prices';
 import { useState, useEffect } from 'react';
 import firebase from './firebase';
 
@@ -12,6 +13,7 @@ function App() {
   const [numberOfAlbumsInCart, setNumberOfAlbumsInCart] = useState(0);
   const [albumsInCart, setAlbumsInCart] = useState([]);
   const [albumDisplay, setAlbumDisplay] = useState(4);
+  const [cartTotal, setCartTotal] = useState(0)
 
   useEffect(() => {
     const dbRef = firebase.database().ref();
@@ -26,6 +28,11 @@ function App() {
         }
         toBeSetInState.push(albumObject)
       }
+      let cartTotal = 0;
+      toBeSetInState.forEach(arr => {
+        cartTotal = cartTotal + arr.album.price
+      })
+      setCartTotal(cartTotal)
       setAlbumsInCart(toBeSetInState)
       setNumberOfAlbumsInCart(toBeSetInState.length)
     })
@@ -42,22 +49,25 @@ function App() {
     fetch(`${url}?method=artist.gettopalbums&artist=${userInput}&api_key=${apiKey}&limit=16&format=json`)
       .then(res => res.json())
       .then(data => {
-        console.log(data)
-        data.topalbums.album.sort((a, b) => {
+        const albumsSorted = data.topalbums.album.sort((a, b) => {
           return b.playcount - a.playcount
         });
-        setAlbumArray(data.topalbums.album)
+        albumsSorted.forEach(album => {
+          album.prices = prices[Math.floor(Math.random() * prices.length)];
+        })
+        setAlbumArray(albumsSorted)
         setDisplaySection(true)
         setAlbumDisplay(4)
       })
   }
 
-  const addAlbumToCart = (albumName, artistName, albumArt) => {
+  const addAlbumToCart = (albumName, artistName, albumArt, prices) => {
     setNumberOfAlbumsInCart(numberOfAlbumsInCart + 1);
     const artistObj = {
       album: albumName,
       band: artistName,
-      image: albumArt
+      image: albumArt,
+      price: prices
     }
     const dbRef = firebase.database().ref();
     dbRef.push(artistObj);
@@ -81,6 +91,7 @@ function App() {
         numberOfAlbumsInCart={numberOfAlbumsInCart}
         albumsInCart={albumsInCart}
         removeFromCart={removeFromCart}
+        cartTotal={cartTotal}
       />
       {
         displaySection ?

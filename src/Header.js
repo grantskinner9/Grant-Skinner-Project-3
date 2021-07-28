@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 
-const Header = ({userInput, inputValue, submitValue, numberOfAlbumsInCart, albumsInCart, removeFromCart}) => {
+const Header = ({userInput, inputValue, submitValue, numberOfAlbumsInCart, albumsInCart, removeFromCart, cartTotal}) => {
 
   const [ openCart, setOpenCart ] = useState(false);
 
@@ -22,7 +22,8 @@ const Header = ({userInput, inputValue, submitValue, numberOfAlbumsInCart, album
           albumsInCart={albumsInCart}
           setOpenCart={setOpenCart}
           openCart={openCart}
-          removeFromCart={removeFromCart}/> :
+          removeFromCart={removeFromCart}
+          cartTotal={cartTotal}/> :
           null
         }
         <h1>Mountain<span>Records</span></h1>

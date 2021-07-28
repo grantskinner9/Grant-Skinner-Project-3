@@ -309,7 +309,7 @@ img {
 }
 
 header {
-  height: 100vh;
+  height: 80vh;
   background-image: url("../assets/giorgio-trovato-8_LhgVjT6KQ-unsplash.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -354,7 +354,7 @@ header h1 {
   color: ivory;
   font-size: 5rem;
   text-align: center;
-  padding-top: 150px;
+  padding-top: 100px;
   line-height: 90px;
   letter-spacing: 20px;
 }
@@ -368,7 +368,7 @@ header h1 span {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 50px;
 }
 .myForm input {
   width: 300px;
@@ -422,6 +422,9 @@ header h1 span {
 }
 .albumList li.artistResults .artistName {
   font-size: 0.75rem;
+}
+.albumList li.artistResults .price {
+  font-size: 0.9rem;
 }
 .albumList li.artistResults img {
   width: 100%;
@@ -520,6 +523,10 @@ div.cart .albumCartDisplay .artistCartName {
   font-size: 0.8rem;
   padding-top: 5px;
 }
+div.cart .albumCartDisplay .albumPrice {
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+}
 div.cart .imageCartContainer {
   position: relative;
   display: flex;
@@ -541,6 +548,16 @@ div.cart .imageCartContainer .removeFromCart:hover, div.cart .imageCartContainer
   color: white;
   background-color: black;
   cursor: pointer;
+}
+div.cart .cartTotal {
+  font-family: "Jost", sans-serif;
+  font-size: 1.3rem;
+  padding-top: 50px;
+  padding-right: 30px;
+  text-align: right;
+}
+div.cart .cartTotal span {
+  display: block;
 }
 
 @media (max-width: 1000px) {
