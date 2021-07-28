@@ -283,7 +283,7 @@ header .cartPosition .cartFlex {
   cursor: pointer;
 }
 header .cartPosition .cartFlex:hover, header .cartPosition .cartFlex:focus {
-  opacity: 70%;
+  opacity: 0.7;
 }
 header .cartPosition .cartFlex .fa-shopping-cart {
   font-size: 2rem;
