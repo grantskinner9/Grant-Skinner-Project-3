@@ -1,8 +1,7 @@
 const ResultsSection = ({albumResults, addAlbumToCart, albumDisplay, showMore}) => {
 
-
+  // We use .slice() to create a new array, with only the number of albums I want displayed at a time.  Used .slice() as it returns a new array, and doesn't alter state.  albumDisplay is pased in as second parameted, so when a user clicks Show More button, albumDisplay will increase by 4 at a time.
   const albumsToBeDisplayed = albumResults.slice([0], albumDisplay);
-  
 
   return(
     <section>

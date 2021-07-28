@@ -13,7 +13,6 @@ const Cart = ({ albumsInCart, setOpenCart, openCart, removeFromCart, cartTotal }
         <ul className="albumList">
           {
             albumsInCart.map(albums => {
-              console.log(albums)
               return(
                 <li key={albums.key} className="albumCartDisplay">
                   <div className="imageCartContainer" onClick={() => removeFromCart(albums.key)}>
