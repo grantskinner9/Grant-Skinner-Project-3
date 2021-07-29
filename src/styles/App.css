@@ -9,20 +9,6 @@ body {
   margin: 0;
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 article,
 aside,
 footer,
@@ -67,7 +53,7 @@ abbr[title] {
   border-bottom: none;
   text-decoration: underline;
   -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
+          text-decoration: underline dotted;
 }
 
 b,
@@ -156,24 +142,24 @@ select {
 }
 
 button,
-html [type="button"],
-[type="reset"],
-[type="submit"] {
+html [type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
 button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -199,24 +185,24 @@ textarea {
   overflow: auto;
 }
 
-[type="checkbox"],
-[type="radio"] {
+[type=checkbox],
+[type=radio] {
   box-sizing: border-box;
   padding: 0;
 }
 
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 
-[type="search"] {
+[type=search] {
   -webkit-appearance: textfield;
   outline-offset: -2px;
 }
 
-[type="search"]::-webkit-search-cancel-button,
-[type="search"]::-webkit-search-decoration {
+[type=search]::-webkit-search-cancel-button,
+[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -274,7 +260,7 @@ html {
   padding: 0;
   white-space: nowrap;
   -webkit-clip-path: inset(100%);
-  clip-path: inset(100%);
+          clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
@@ -296,8 +282,7 @@ header .cartPosition .cartFlex {
   top: 20px;
   cursor: pointer;
 }
-header .cartPosition .cartFlex:hover,
-header .cartPosition .cartFlex:focus {
+header .cartPosition .cartFlex:hover, header .cartPosition .cartFlex:focus {
   opacity: 0.7;
 }
 header .cartPosition .cartFlex .fa-shopping-cart {
@@ -352,12 +337,15 @@ header h1 span {
 }
 .myForm input::-moz-placeholder {
   opacity: 1;
+  color: ivory;
 }
 .myForm input:-ms-input-placeholder {
   opacity: 1;
+  color: ivory;
 }
 .myForm input::placeholder {
   opacity: 1;
+  color: ivory;
 }
 .myForm button {
   border-radius: 20px;
@@ -370,8 +358,7 @@ header h1 span {
   color: ivory;
   transition: 0.2s;
 }
-.myForm button:hover,
-.myForm button:focus {
+.myForm button:hover, .myForm button:focus {
   cursor: pointer;
   background-color: #333;
 }
@@ -417,8 +404,7 @@ header h1 span {
   font-family: "Jost", sans-serif;
   font-size: 1.5rem;
 }
-.albumList li.artistResults .addToCart:hover,
-.albumList li.artistResults .addToCart:focus {
+.albumList li.artistResults .addToCart:hover, .albumList li.artistResults .addToCart:focus {
   opacity: 0.8;
   color: white;
   background-color: black;
@@ -437,8 +423,7 @@ button {
   transition: 0.2s;
   display: block;
 }
-button:hover,
-button:focus {
+button:hover, button:focus {
   cursor: pointer;
   background-color: #333;
 }
@@ -465,8 +450,7 @@ div.cart .cartContainer .closeIcon {
   font-size: 3rem;
   font-weight: 600;
 }
-div.cart .cartContainer .closeIcon:hover,
-div.cart .cartContainer .closeIcon:focus {
+div.cart .cartContainer .closeIcon:hover, div.cart .cartContainer .closeIcon:focus {
   color: #454545;
 }
 div.cart .cartItems {
@@ -520,8 +504,7 @@ div.cart .imageCartContainer .removeFromCart {
   font-family: "Jost", sans-serif;
   font-size: 1.4rem;
 }
-div.cart .imageCartContainer .removeFromCart:hover,
-div.cart .imageCartContainer .removeFromCart:focus {
+div.cart .imageCartContainer .removeFromCart:hover, div.cart .imageCartContainer .removeFromCart:focus {
   opacity: 0.8;
   color: white;
   background-color: black;
@@ -613,4 +596,4 @@ a {
 
 img {
   display: block;
-} /*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.css.map */

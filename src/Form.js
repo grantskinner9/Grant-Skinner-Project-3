@@ -14,12 +14,12 @@ const Form = ({userInput, inputValue, submitValue}) => {
       onSubmit={submitUserValue}
     >
 
-      <label htmlFor="recordSearch" className="sr-only">Search record:</label>
+      <label htmlFor="recordSearch" className="sr-only">Search artist:</label>
       <input
         type="text"
         id="recordSearch"
         name="recordSearch"
-        placeholder="Search Record"
+        placeholder="Search Artist"
         required
         onChange={ (e) => userInput(e.target.value) }
         value={inputValue}
