@@ -14,7 +14,8 @@ function App() {
   const [numberOfAlbumsInCart, setNumberOfAlbumsInCart] = useState(0);
   const [albumsInCart, setAlbumsInCart] = useState([]);
   const [albumDisplay, setAlbumDisplay] = useState(4);
-  const [cartTotal, setCartTotal] = useState(0)
+  const [cartTotal, setCartTotal] = useState(0);
+  const [initAlbums, setInitAlbums] = useState([]);
 
   // useEffect mounts on pageload.  It retrieves reference of firebase database.  I loop through the recieved firebase data and push it into an array of objects called toBeSetInState.  I then loop through the toBeSetInState array and tally up the price value in each object which gets set as cartTotal.  I set the price total to state with setPriceTotal, which I am also using .toFixed(2) on so it only gives me the first 2 deminal points in the price total.  This number gets displayed in the cart.  I set my toBeSetInState array of object into state using setAlbumsInCart.  These are the albums that get displayed into the cart .  I lastly set the setNumberOfAlbumsInCart state to my array length, so that the number on the cart knows how many items are in the cart
   useEffect(() => {
@@ -41,6 +42,8 @@ function App() {
       setNumberOfAlbumsInCart(toBeSetInState.length)
     })
   }, [])
+
+
 
   //This function gets passed down through <Header />, and then through to <Form /> as a prop.  It handles the users typed input and sets it into state through setUserInput
   const handleChange = (input) => {
@@ -88,6 +91,34 @@ function App() {
     })
   }
 
+  useEffect(() => {
+    const url = 'https://ws.audioscrobbler.com/2.0/';
+    const apiKey = '93bd57c3a3ad6ee71989509b74af6577';
+    fetch(`${url}?method=tag.gettopalbums&tag=disco&api_key=${apiKey}&format=json`)
+    .then(res => {
+      if(res.ok) {
+        return res.json();
+      } else {
+        throw new Error(res.statusText);
+      }
+    })
+    .then(data => {
+      const albumsSorted = data.albums.album.sort((a, b) => {
+        return b.playcount - a.playcount
+      });
+
+      albumsSorted.forEach(album => {
+        album.prices = prices[Math.floor(Math.random() * prices.length)];
+      })
+
+      const albumsWithImage = albumsSorted.filter(album => {
+        return album.image[0]["#text"];
+      });
+
+      setInitAlbums(albumsWithImage)
+    })
+  }, [])
+
   // This is set through as a prop to <ResultsSection />.  This function fires when a user clicks an album cover from the results section.  It takes info of the album as parameters and sorts it into an object.  This object then gets push into firebase.
   const addAlbumToCart = (albumName, artistName, albumArt, prices) => {
     const artistObj = {
@@ -122,21 +153,15 @@ function App() {
         removeFromCart={removeFromCart}
         cartTotal={cartTotal}
       />
-      {
-        displaySection ?
-        <ResultsSection
-        albumResults={albumArray}
-        addAlbumToCart={addAlbumToCart}
-        albumDisplay={albumDisplay}
-        showMore={showMore}
-        /> :
-        null
-      }
-      {
-        displaySection ?
-        <Footer /> :
-        null
-      }
+      <ResultsSection
+      albumResults={albumArray}
+      addAlbumToCart={addAlbumToCart}
+      albumDisplay={albumDisplay}
+      showMore={showMore}
+      initAlbums={initAlbums}
+      displaySection={displaySection}
+      />
+      <Footer />
 
     </div>
   );

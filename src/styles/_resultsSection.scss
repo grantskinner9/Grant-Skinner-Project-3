@@ -1,3 +1,12 @@
+.albumSection{
+  background-color: rgba(245, 246, 252);
+  .featured {
+    text-align: center;
+    font-family: $primaryFont;
+    font-size: 1.5rem;
+    padding: 15px;
+  }
+}
 .albumList {
   display: flex;
   justify-content: center;
@@ -5,7 +14,7 @@
   font-family: $primaryFont;
   li.artistResults {
     width: calc(100% / 4);
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,21 +55,23 @@
     }
   }
 }
-
-button {
-  border-radius: 20px;
-  padding: 10px;
-  margin: 50px auto;
-  background-color: black;
-  font-family: $primaryFont;
-  font-size: 1.5rem;
-  width: 200px;
-  color: ivory;
-  transition: 0.2s;
-  display: block;
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    background-color: #333;
+.showMore{
+  padding: 50px;
+  button {
+    border-radius: 20px;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: black;
+    font-family: $primaryFont;
+    font-size: 1.5rem;
+    width: 200px;
+    color: ivory;
+    transition: 0.2s;
+    display: block;
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      background-color: #333;
+    }
   }
 }

@@ -267,7 +267,7 @@ html {
 
 header {
   height: 80vh;
-  background-image: url("../assets/giorgio-trovato-8_LhgVjT6KQ-unsplash.jpg");
+  background-image: linear-gradient(to bottom, rgba(117, 19, 93, 0.73), rgb(245, 246, 252)), url("../assets/giorgio-trovato-8_LhgVjT6KQ-unsplash.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -315,7 +315,7 @@ header h1 {
   text-align: center;
   padding-top: 100px;
   line-height: 90px;
-  letter-spacing: 20px;
+  letter-spacing: 5px;
 }
 header h1 span {
   display: block;
@@ -365,6 +365,16 @@ header h1 span {
   background-color: #333;
 }
 
+.albumSection {
+  background-color: rgb(245, 246, 252);
+}
+.albumSection .featured {
+  text-align: center;
+  font-family: "Jost", sans-serif;
+  font-size: 1.5rem;
+  padding: 15px;
+}
+
 .albumList {
   display: flex;
   justify-content: center;
@@ -372,8 +382,8 @@ header h1 span {
   font-family: "Jost", sans-serif;
 }
 .albumList li.artistResults {
-  width: calc(100% / 4);
-  margin-top: 100px;
+  width: 25%;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -413,10 +423,13 @@ header h1 span {
   cursor: pointer;
 }
 
-button {
+.showMore {
+  padding: 50px;
+}
+.showMore button {
   border-radius: 20px;
   padding: 10px;
-  margin: 50px auto;
+  margin: 0 auto;
   background-color: black;
   font-family: "Jost", sans-serif;
   font-size: 1.5rem;
@@ -425,7 +438,7 @@ button {
   transition: 0.2s;
   display: block;
 }
-button:hover, button:focus {
+.showMore button:hover, .showMore button:focus {
   cursor: pointer;
   background-color: #333;
 }
@@ -453,7 +466,7 @@ div.cart .cartContainer .closeIcon {
   font-weight: 600;
 }
 div.cart .cartContainer .closeIcon:hover, div.cart .cartContainer .closeIcon:focus {
-  color: #454545;
+  color: rgb(69, 69, 69);
 }
 div.cart .cartItems {
   display: flex;
@@ -475,8 +488,8 @@ div.cart .albumCartDisplay {
   font-family: "Jost", sans-serif;
 }
 div.cart .albumCartDisplay img {
-  width: 70%;
-  height: 70%;
+  width: 220px;
+  height: 220px;
   margin: 0 auto;
 }
 div.cart .albumCartDisplay .albumCartName {
@@ -497,12 +510,12 @@ div.cart .imageCartContainer {
 }
 div.cart .imageCartContainer .removeFromCart {
   position: absolute;
-  height: 100%;
-  width: 70%;
+  height: 220px;
+  width: 220px;
   top: 0;
   opacity: 0;
   text-align: center;
-  padding-top: 25%;
+  padding: 90px 0;
   font-family: "Jost", sans-serif;
   font-size: 1.4rem;
 }
@@ -529,9 +542,8 @@ div.cart .cartTotal span {
 }
 @media (max-width: 800px) {
   .albumList li.artistResults {
-    width: calc(100% / 2);
+    width: 50%;
   }
-
   div.cart {
     width: 100vw;
   }
@@ -541,9 +553,8 @@ div.cart .cartTotal span {
     font-size: 2.5rem;
     line-height: 60px;
   }
-
   .albumList li.artistResults {
-    width: calc(80%);
+    width: 80%;
   }
 }
 .footer {

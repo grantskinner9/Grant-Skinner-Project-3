@@ -42,8 +42,8 @@ div.cart {
     text-align: center;
     font-family: $primaryFont;
     img {
-      width: 70%;
-      height: 70%;
+      width: 220px;
+      height: 220px;
       margin: 0 auto;
     }
     .albumCartName {
@@ -64,12 +64,12 @@ div.cart {
     justify-content: center;
     .removeFromCart {
       position: absolute;
-      height: 100%;
-      width: 70%;
+      height: 220px;
+      width: 220px;
       top: 0;
       opacity: 0;
       text-align: center;
-      padding-top: 25%;
+      padding: 90px 0;
       font-family: $primaryFont;
       font-size: 1.4rem;
       &:hover,

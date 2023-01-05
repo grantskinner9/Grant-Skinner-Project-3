@@ -2,10 +2,12 @@
 
 header {
   height: 80vh;
-  background-image: url("../assets/giorgio-trovato-8_LhgVjT6KQ-unsplash.jpg");
+  background-image:
+  linear-gradient(to bottom, rgba(117, 19, 93, 0.73) ,rgba(245, 246, 252)), url("../assets/giorgio-trovato-8_LhgVjT6KQ-unsplash.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  
   position: relative;
   .cartPosition {
     position: relative;
@@ -50,7 +52,7 @@ header {
     text-align: center;
     padding-top: 100px;
     line-height: 90px;
-    letter-spacing: 20px;
+    letter-spacing: 5px;
     span {
       display: block;
       font-style: italic;
