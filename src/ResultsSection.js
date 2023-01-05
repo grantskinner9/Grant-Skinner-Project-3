@@ -1,7 +1,8 @@
 const ResultsSection = ({albumResults, addAlbumToCart, albumDisplay, showMore, initAlbums, displaySection}) => {
 
-  // We use .slice() to create a new array, with only the number of albums I want displayed at a time.  Used .slice() as it returns a new array, and doesn't alter state.  albumDisplay is pased in as second parameted, so when a user clicks Show More button, albumDisplay will increase by 4 at a time.
+  // We use .slice() to create a new array, with only the number of albums I want displayed at a time.  Used .slice() as it returns a new array, and doesn't alter state.  albumDisplay is passed in as second parameter, so when a user clicks Show More button, albumDisplay will increase by 4 at a time.
   const albumsToBeDisplayed = albumResults.slice([0], albumDisplay);
+  const featuredAlbumsToBeDisplayed = initAlbums.slice([0], albumDisplay)
 
   return(
     <section className="albumSection">
@@ -32,7 +33,7 @@ const ResultsSection = ({albumResults, addAlbumToCart, albumDisplay, showMore, i
                 </li>
               )
             }):
-            initAlbums.map((results, index) => {
+            featuredAlbumsToBeDisplayed.map((results, index) => {
               const image = results.image[results.image.length-1]["#text"];
               const { name, artist, prices } = results;
               return(   

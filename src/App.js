@@ -90,7 +90,7 @@ function App() {
       }
     })
   }
-
+  //This handles API call to lastfm database for featured albums on page load.  I put in a .catch() to handle API error to display a message to the user.  If the call is successful I run the recieved data through a .sort() method so that it sorts the array by highest playcount (this should theoretically display the most popular albums first).  I then loop through the sorted array and set a random price to each album.  I did this by creating an array of 4 price options in prices.js which I import into my App.js, which then is used to find a random price in that array.  I then run a .filter() method on my sorted array, to only return albums with photos in them.  I set the sorted albums WITH images into state with setInitAlbums.  Lastly, I setAlbumDisplay to 4, which what I use to only show the first 4 array items on submit. 
   useEffect(() => {
     const url = 'https://ws.audioscrobbler.com/2.0/';
     const apiKey = '93bd57c3a3ad6ee71989509b74af6577';
@@ -116,6 +116,14 @@ function App() {
       });
 
       setInitAlbums(albumsWithImage)
+    })
+    .catch(err => {
+      console.log(err)
+      if (err.message === "Not Found") {
+        alert("We couldn't find featured albums at this time.  Try again later.")
+      } else {
+        alert("Something went wrong.  Try again later.")
+      }
     })
   }, [])
 
